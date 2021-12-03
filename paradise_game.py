@@ -36,6 +36,15 @@ def endText():
     time.sleep(2)
     sys.exit()
 
+def playerInput():
+    print("Press any key + ENTER to continue. Press 'Q' + ENTER to exit.".center(100))
+    start_bn = input()
+    while True:
+        if start_bn.lower() == "q":
+            endText()
+        else:
+            break
+
 # Game start:
 print("".center(100, "="))
 print(" A Day In Paradise ".center(100, "="))
@@ -45,16 +54,7 @@ print("".center(100, "="))
 print("\n")
 print("\n")
 time.sleep(2)
-print("Press any key + ENTER to begin. Press 'Q' + ENTER to exit.".center(100))
-start_bn = input()
-
-# Player key press to start or end game:
-while True:
-    # ending game:
-    if start_bn.lower() == "q":
-        endText()
-    else:
-        break
+playerInput()
 
 # starting game:
 print("\n")
@@ -98,9 +98,10 @@ time.sleep(0.5)
 typeText(intro_text, 0.01)
 time.sleep(1)
 print("".center(100, "*"))
+playerInput()
 
 # Main game:
-print("""
+wake_up_text= """
 I snooze the alarm.
 
 My diary has to put up with my worst self.
@@ -125,8 +126,8 @@ away from the company. They have soft and crispy french croissants which they se
 Disgusting, but my boss loves it. She studied in europe I guess.
 It will take 20 minutes to get there and I still need my coffee. 
 Come on, Pam, think!
-""")
-
+"""
+typeText(wake_up_text, 0.01)
 typeText("...", 0.5)
 time.sleep(0.5)
 print("\n")
@@ -165,8 +166,8 @@ typeText("... 9:05 ... (25 minutes remaining)", 0.1)
 time.sleep(0.5)
 print("\n")
 print("I close the door behind me.")
-time.sleep(2)
-print("""
+playerInput()
+lets_go_text= """
 And run down the stairs while trying to figure out which way will be the fastest to get to "Le Chou".
 I could take my bike but lose five minutes, trying to unlock the rusty chain I use, to secure it against
 the certain loss I'd suffer if I didn't.
@@ -182,7 +183,8 @@ Checking the trains now, which is the easiest and most reliable way of getting t
 The L-Train leaves from Bushwick Station at 9:10. I'll need 18 minutes to get to James Ave and another minute
 of running to "Le Chou". Close call!
 Come on, Pam. Think!
-""")
+"""
+typeText(lets_go_text, 0.01)
 typeText("...", 0.5)
 time.sleep(0.5)
 print("\n")
@@ -282,7 +284,7 @@ I did it!
 9:11.
 The train is one minute late.
 Had it been on time, I wouldn't have made it.
-But now I lost one minute and my punctuality for the meeting now depends on the speed of
+But I lost one minute and my punctuality for the meeting now depends on the speed of
 the train.       
         """)
         if train_chance < 5: # train ride goes smooth, arrives on time
